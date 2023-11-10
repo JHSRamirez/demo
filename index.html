@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Página de Pruebas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            padding-bottom: 50px; 
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: -50px; 
+        }
+
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #555;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px; 
+            font-size: 16px;
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .letra-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px; 
+            font-size: 16px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+            margin-bottom: 10px; 
+        }
+
+        input[type="number"]::placeholder {
+            color: #aaa; 
+        }
+
+       
+        input[type="number"]:focus {
+            outline: none; 
+            border: 2px solid #4CAF50; 
+        }
+    </style>
+        <script>
+            function agregar(valor) {
+                document.getElementById('display').value += valor;
+            }
+    
+            function limpiar() {
+                document.getElementById('display').value = '';
+            }
+    
+            function eliminar() {
+                var display = document.getElementById('display');
+                display.value = display.value.slice(0, -1);
+            }
+    
+            function calcular() {
+                try {
+                    var display = document.getElementById('display');
+                    display.value = eval(display.value);
+                } catch (error) {
+                    display.value = 'Error';
+                }
+            }
+
+            var numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+            function adivinarNumero() {
+                var guess = document.getElementById('guessInput').value;
+
+                if (guess == numeroSecreto) {
+                    mostrarResultado("¡Correcto! Has adivinado el número.");
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.");
+                }
+            }
+
+            function mostrarResultado(mensaje) {
+                document.getElementById('output').innerHTML = mensaje;
+            }
+        </script>
+</head>
+<body>
+    <header>
+        <h1>Pagina full 10/10 Calidosa Para Topicos</h1>
+    </header>
+
+    <nav>
+        <a href="#seccion1">Docker</a>
+        <a href="#seccion2">AWS</a>
+        <a href="#seccion3">Azure</a>
+    </nav>
+
+    <section id="seccion1">
+        <h2>Calculadora</h2>
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" id="display" readonly></td>
+            </tr>
+            <tr>
+                <td><button onclick="limpiar()">C</button></td>
+                <td><button onclick="eliminar()">←</button></td>
+                <td><button onclick="agregar('/')">/</button></td>
+                <td><button onclick="agregar('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('7')">7</button></td>
+                <td><button onclick="agregar('8')">8</button></td>
+                <td><button onclick="agregar('9')">9</button></td>
+                <td><button onclick="agregar('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('4')">4</button></td>
+                <td><button onclick="agregar('5')">5</button></td>
+                <td><button onclick="agregar('6')">6</button></td>
+                <td><button onclick="agregar('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('1')">1</button></td>
+                <td><button onclick="agregar('2')">2</button></td>
+                <td><button onclick="agregar('3')">3</button></td>
+                <td rowspan="2"><button onclick="calcular()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="agregar('0')">0</button></td>
+                <td><button onclick="agregar('.')">.</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="seccion2">
+        <h2>Cariñito Sin Mi</h2>
+        <div class="letra-container">
+        <p>
+            Cómo quieres tu que te quiera, cariñito<br>
+            Si de tu amor no me das ni un poquito<br>
+            Cuando yo te miro te haces la disimulada<br>
+            De mi amor tu no quieres nada<br>
+        </p>
+        <p>
+            Cuando me acuerdo que no me quieres<br>
+            Levanto mi copa y digo salud<br>
+            Quiero embriagarme es para olvidar que<br>
+            En mi vida existes tú<br>
+        </p>
+        <p>
+            Cómo quieres tu que te quiera, cariñito<br>
+            Si de tu amor no me das ni un poquito<br>
+            Cuando yo te miro te haces la disimulada<br>
+            De mi amor tu no quieres nada<br>
+        </p>
+        <p>
+            Cuando me acuerdo que no me quieres<br>
+            Levanto mi copa y digo salud<br>
+            Quiero embriagarme es para olvidar que en<br>
+            Mi vida existes tú<br>
+        </p>
+        </div>
+    </section>
+
+    <section id="seccion3">
+        <h2>Juego de Adivinanza</h2>
+        <p>Adivina el número entre 1 y 10:</p>
+
+        <input type="number" id="guessInput" placeholder="Ingrese su respuesta">
+        <button onclick="adivinarNumero()">Adivinar</button>
+    
+        <div id="output"></div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Pagina full 10/10 Calidosa Para Topicos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
